@@ -102,17 +102,13 @@
             justify-content: center;
         }
         .bouquet-box {
-            font-size: 85px;
-            filter: drop-shadow(0 0 20px #00d2ff);
+            font-size: 80px;
+            filter: drop-shadow(0 0 25px #00d2ff) hue-rotate(180deg);
             animation: pulse-bouquet 2s infinite alternate;
         }
         @keyframes pulse-bouquet {
             0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
-        }
-        .flower-blue {
-            color: #00d2ff;
-            text-shadow: 0 0 15px #00d2ff;
+            100% { transform: scale(1.06); }
         }
         .card {
             background: rgba(10, 20, 35, 0.85);
@@ -179,7 +175,7 @@
 
     <div class="bouquet-section">
         <div class="bouquet-box">
-            <span class="flower-blue">💐</span>
+            <span>💠💐💙</span>
         </div>
     </div>
 
@@ -189,11 +185,9 @@
 
     <script>
         function startExperience() {
-            // Reproducir música
             const music = document.getElementById('bg-music');
             music.play().catch(e => console.log("Audio play blocked", e));
 
-            // Ocultar pantalla de bienvenida
             const welcome = document.getElementById('welcome-screen');
             welcome.style.opacity = '0';
             setTimeout(() => {
@@ -201,7 +195,6 @@
             }, 600);
         }
 
-        // Frases románticas rotativas
         const messages = [
             "Mi lugar feliz eres tú. 💙",
             "Eres la casualidad más bonita. ✨",
@@ -224,7 +217,6 @@
             }, 300);
         }, 3500);
 
-        // Generar estrellas en el fondo
         for (let i = 0; i < 40; i++) {
             let star = document.createElement("div");
             star.className = "star";
@@ -236,7 +228,6 @@
             document.body.appendChild(star);
         }
 
-        // Generar carritos Hot Wheels cruzando la pantalla
         const carEmojis = ["🏎️", "🚗", "🚙", "🏎️💨"];
         for (let i = 0; i < 5; i++) {
             let car = document.createElement("div");
