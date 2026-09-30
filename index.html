@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Día de los Carritos Hot Wheels 🚗💙</title>
+    <title>Para el amor de mi vida 💙</title>
     <style>
         * {
             margin: 0;
@@ -24,7 +24,6 @@
             text-align: center;
             position: relative;
         }
-        /* Pantalla de bienvenida inicial */
         #welcome-screen {
             position: fixed;
             top: 0;
@@ -38,7 +37,7 @@
             justify-content: center;
             z-index: 100;
             padding: 20px;
-            transition: opacity 0.8s ease;
+            transition: opacity 0.6s ease;
         }
         .welcome-card {
             background: rgba(15, 25, 45, 0.95);
@@ -71,19 +70,13 @@
             font-weight: bold;
             cursor: pointer;
             box-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
-            transition: transform 0.2s;
         }
-        .open-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* Contenido principal */
         header {
             z-index: 10;
             margin-top: 10px;
         }
         h1 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: #7df9ff;
             text-shadow: 0 0 10px rgba(125, 249, 255, 0.6);
             margin-bottom: 5px;
@@ -97,18 +90,13 @@
             position: relative;
             z-index: 10;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 10px;
         }
-        .bouquet-box {
-            font-size: 80px;
-            filter: drop-shadow(0 0 20px #00d2ff);
-            animation: pulse-bouquet 2s infinite alternate;
-        }
-        @keyframes pulse-bouquet {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.06); }
+        .icon-art {
+            font-size: 55px;
+            filter: drop-shadow(0 0 15px #00d2ff);
         }
         .card {
             background: rgba(10, 20, 35, 0.85);
@@ -119,7 +107,7 @@
             width: 330px;
             box-shadow: 0 0 25px rgba(0, 210, 255, 0.4);
             z-index: 10;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         .card p {
             font-size: 1.15rem;
@@ -131,19 +119,13 @@
             background: white;
             border-radius: 50%;
             z-index: 1;
-            animation: twinkle 1.5s infinite alternate;
-        }
-        @keyframes twinkle {
-            0% { opacity: 0.2; }
-            100% { opacity: 1; }
         }
         .moving-car {
             position: absolute;
-            font-size: 32px;
+            font-size: 30px;
             z-index: 5;
             white-space: nowrap;
             pointer-events: none;
-            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
             animation: drive linear infinite;
         }
         @keyframes drive {
@@ -154,12 +136,11 @@
 </head>
 <body>
 
-    <!-- Música de fondo romántica -->
+    <!-- Audio romántico directo -->
     <audio id="bg-music" loop>
         <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf756.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Pantalla Inicial con la dedicatoria -->
     <div id="welcome-screen">
         <div class="welcome-card">
             <h2>Para el amor de mi vida 🤍</h2>
@@ -174,9 +155,9 @@
     </header>
 
     <div class="bouquet-section">
-        <div class="bouquet-box">
-            <span>💐</span>
-        </div>
+        <span class="icon-art">💙</span>
+        <span class="icon-art">💐</span>
+        <span class="icon-art">✨</span>
     </div>
 
     <div class="card">
@@ -186,13 +167,13 @@
     <script>
         function startExperience() {
             const music = document.getElementById('bg-music');
-            music.play().catch(e => console.log("Audio play blocked", e));
+            music.play().catch(e => console.log("Audio error:", e));
 
             const welcome = document.getElementById('welcome-screen');
             welcome.style.opacity = '0';
             setTimeout(() => {
                 welcome.style.display = 'none';
-            }, 800);
+            }, 600);
         }
 
         const messages = [
@@ -217,25 +198,24 @@
             }, 300);
         }, 3500);
 
-        for (let i = 0; i < 40; i++) {
+        for (let i = 0; i < 35; i++) {
             let star = document.createElement("div");
             star.className = "star";
             star.style.top = Math.random() * 100 + "vh";
             star.style.left = Math.random() * 100 + "vw";
-            star.style.width = Math.random() * 3 + "px";
+            star.style.width = (Math.random() * 2 + 1) + "px";
             star.style.height = star.style.width;
-            star.style.animationDuration = (Math.random() * 2 + 1) + "s";
             document.body.appendChild(star);
         }
 
         const carEmojis = ["🏎️", "🚗", "🚙", "🏎️💨"];
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 4; i++) {
             let car = document.createElement("div");
             car.className = "moving-car";
             car.textContent = carEmojis[Math.floor(Math.random() * carEmojis.length)];
-            car.style.top = (15 + Math.random() * 65) + "vh";
-            car.style.animationDuration = (4 + Math.random() * 4) + "s";
-            car.style.animationDelay = (Math.random() * 5) + "s";
+            car.style.top = (20 + Math.random() * 60) + "vh";
+            car.style.animationDuration = (4 + Math.random() * 3) + "s";
+            car.style.animationDelay = (Math.random() * 4) + "s";
             document.body.appendChild(car);
         }
     </script>
