@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Día de los Carritos Hot Wheels 🚗</title>
+    <title>Feliz Día de los Carritos Hot Wheels 🚗💙</title>
     <style>
         * {
             margin: 0;
@@ -12,92 +12,196 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: #050b14;
+            background-color: #030712;
             color: white;
-            overflow-x: hidden;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+            padding: 20px 10px;
+            text-align: center;
+            position: relative;
+        }
+        /* Pantalla de bienvenida inicial */
+        #welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #030712;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            z-index: 100;
+            padding: 20px;
+            transition: opacity 0.6s ease;
+        }
+        .welcome-card {
+            background: rgba(15, 25, 45, 0.95);
+            border: 2px solid #00d2ff;
+            padding: 25px 20px;
+            border-radius: 20px;
+            max-width: 90%;
+            width: 340px;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.5);
             text-align: center;
-            position: relative;
+        }
+        .welcome-card h2 {
+            color: #7df9ff;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        .welcome-card p {
+            color: #ffffff;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .open-btn {
+            background: linear-gradient(135deg, #00d2ff, #0072ff);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
+            transition: transform 0.2s;
+        }
+        .open-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Contenido principal */
+        header {
+            z-index: 10;
+            margin-top: 10px;
         }
         h1 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: #7df9ff;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(125, 249, 255, 0.5);
-            z-index: 10;
+            text-shadow: 0 0 10px rgba(125, 249, 255, 0.6);
+            margin-bottom: 5px;
         }
         .date {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #ff6f61;
-            margin-bottom: 20px;
             font-weight: bold;
-            z-index: 10;
         }
-        .bouquet-container {
+        .bouquet-section {
             position: relative;
-            width: 300px;
-            height: 350px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            margin-bottom: 20px;
             z-index: 10;
-        }
-        .bouquet-img {
-            width: 250px;
-            filter: drop-shadow(0 0 15px rgba(0, 150, 255, 0.6));
-        }
-        .card {
-            background: rgba(15, 25, 45, 0.9);
-            border: 2px solid #7df9ff;
-            padding: 15px 20px;
-            border-radius: 15px;
-            max-width: 90%;
-            width: 320px;
-            box-shadow: 0 0 20px rgba(125, 249, 255, 0.3);
-            z-index: 10;
-            min-height: 80px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
         }
-        .card p {
-            font-size: 1.1rem;
-            color: #ffffff;
+        .bouquet-box {
+            font-size: 85px;
+            filter: drop-shadow(0 0 20px #00d2ff);
+            animation: pulse-bouquet 2s infinite alternate;
         }
-        /* Estrellas de fondo */
+        @keyframes pulse-bouquet {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        .flower-blue {
+            color: #00d2ff;
+            text-shadow: 0 0 15px #00d2ff;
+        }
+        .card {
+            background: rgba(10, 20, 35, 0.85);
+            border: 2px solid #00d2ff;
+            padding: 15px 20px;
+            border-radius: 18px;
+            max-width: 90%;
+            width: 330px;
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.4);
+            z-index: 10;
+            margin-bottom: 15px;
+        }
+        .card p {
+            font-size: 1.15rem;
+            color: #ffffff;
+            font-weight: 500;
+        }
         .star {
             position: absolute;
             background: white;
             border-radius: 50%;
-            animation: twinkle 2s infinite alternate;
+            z-index: 1;
+            animation: twinkle 1.5s infinite alternate;
         }
         @keyframes twinkle {
             0% { opacity: 0.2; }
             100% { opacity: 1; }
         }
+        .moving-car {
+            position: absolute;
+            font-size: 32px;
+            z-index: 5;
+            white-space: nowrap;
+            pointer-events: none;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+            animation: drive linear infinite;
+        }
+        @keyframes drive {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(calc(100vw + 100px)); }
+        }
     </style>
 </head>
 <body>
 
-    <h1>Feliz Día de los Carritos Hot Wheels 🚗💨</h1>
-    <div class="date">30 / 09 / 2026 💙</div>
+    <!-- Música romántica de fondo -->
+    <audio id="bg-music" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mpeg">
+    </audio>
 
-    <div class="bouquet-container">
-        <!-- Simulación visual del ramo -->
-        <div style="font-size: 80px;">💐🏎️</div>
+    <!-- Pantalla Inicial con la Dedicatoria -->
+    <div id="welcome-screen">
+        <div class="welcome-card">
+            <h2>Para el amor de mi vida 🤍</h2>
+            <p>Este regalo es para ti en este día muy especial (30/09/2026). Gracias por existir en mi vida.</p>
+            <button class="open-btn" onclick="startExperience()">Abrir sorpresa 🎁</button>
+        </div>
+    </div>
+
+    <header>
+        <h1>Feliz Día de los Carritos Hot Wheels 🚗💨</h1>
+        <div class="date">30 / 09 / 2026 💙</div>
+    </header>
+
+    <div class="bouquet-section">
+        <div class="bouquet-box">
+            <span class="flower-blue">💐</span>
+        </div>
     </div>
 
     <div class="card">
-        <p id="message">Mi lugar feliz eres tú. Gracias por existir. ✨</p>
+        <p id="message">Mi lugar feliz eres tú. 💙</p>
     </div>
 
     <script>
-        // Mensajes románticos que cambian cada pocos segundos
+        function startExperience() {
+            // Reproducir música
+            const music = document.getElementById('bg-music');
+            music.play().catch(e => console.log("Audio play blocked", e));
+
+            // Ocultar pantalla de bienvenida
+            const welcome = document.getElementById('welcome-screen');
+            welcome.style.opacity = '0';
+            setTimeout(() => {
+                welcome.style.display = 'none';
+            }, 600);
+        }
+
+        // Frases románticas rotativas
         const messages = [
             "Mi lugar feliz eres tú. 💙",
             "Eres la casualidad más bonita. ✨",
@@ -120,8 +224,8 @@
             }, 300);
         }, 3500);
 
-        // Generar estrellitas en el fondo
-        for (let i = 0; i < 50; i++) {
+        // Generar estrellas en el fondo
+        for (let i = 0; i < 40; i++) {
             let star = document.createElement("div");
             star.className = "star";
             star.style.top = Math.random() * 100 + "vh";
@@ -131,7 +235,18 @@
             star.style.animationDuration = (Math.random() * 2 + 1) + "s";
             document.body.appendChild(star);
         }
+
+        // Generar carritos Hot Wheels cruzando la pantalla
+        const carEmojis = ["🏎️", "🚗", "🚙", "🏎️💨"];
+        for (let i = 0; i < 5; i++) {
+            let car = document.createElement("div");
+            car.className = "moving-car";
+            car.textContent = carEmojis[Math.floor(Math.random() * carEmojis.length)];
+            car.style.top = (15 + Math.random() * 65) + "vh";
+            car.style.animationDuration = (4 + Math.random() * 4) + "s";
+            car.style.animationDelay = (Math.random() * 5) + "s";
+            document.body.appendChild(car);
+        }
     </script>
 </body>
 </html>
-
