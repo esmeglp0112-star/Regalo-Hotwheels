@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Día de los Carritos Hot Wheels 🚗💙 v2</title>
+    <title>Feliz Día de los Carritos Hot Wheels 🚗💙</title>
     <style>
         * {
             margin: 0;
@@ -24,7 +24,7 @@
             text-align: center;
             position: relative;
         }
-        /* Pantalla de bienvenida con tu dedicatoria */
+        /* Pantalla de bienvenida inicial */
         #welcome-screen {
             position: fixed;
             top: 0;
@@ -38,39 +38,43 @@
             justify-content: center;
             z-index: 100;
             padding: 20px;
-            transition: opacity 0.6s ease;
+            transition: opacity 0.8s ease;
         }
         .welcome-card {
             background: rgba(15, 25, 45, 0.95);
             border: 2px solid #00d2ff;
-            padding: 25px 20px;
+            padding: 30px 20px;
             border-radius: 20px;
             max-width: 90%;
             width: 340px;
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.5);
+            box-shadow: 0 0 35px rgba(0, 210, 255, 0.5);
             text-align: center;
         }
         .welcome-card h2 {
             color: #7df9ff;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 15px;
         }
         .welcome-card p {
             color: #ffffff;
             font-size: 1.05rem;
-            line-height: 1.5;
-            margin-bottom: 20px;
+            line-height: 1.6;
+            margin-bottom: 25px;
         }
         .open-btn {
             background: linear-gradient(135deg, #00d2ff, #0072ff);
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 12px 28px;
             border-radius: 25px;
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: bold;
             cursor: pointer;
             box-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
+            transition: transform 0.2s;
+        }
+        .open-btn:active {
+            transform: scale(0.95);
         }
 
         /* Contenido principal */
@@ -98,8 +102,8 @@
             justify-content: center;
         }
         .bouquet-box {
-            font-size: 85px;
-            filter: drop-shadow(0 0 25px #00d2ff);
+            font-size: 80px;
+            filter: drop-shadow(0 0 20px #00d2ff);
             animation: pulse-bouquet 2s infinite alternate;
         }
         @keyframes pulse-bouquet {
@@ -150,17 +154,16 @@
 </head>
 <body>
 
-    <!-- Música romántica enlazada -->
+    <!-- Música de fondo romántica -->
     <audio id="bg-music" loop>
-        <source src="https://actions.google.com/sounds/v1/ambiences/rain_heavy.ogg" type="audio/ogg">
         <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf756.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Pantalla de bienvenida con tu fecha -->
+    <!-- Pantalla Inicial con la dedicatoria -->
     <div id="welcome-screen">
         <div class="welcome-card">
             <h2>Para el amor de mi vida 🤍</h2>
-            <p>Este regalo es para ti en este día muy especial (30/09/2026). Gracias por existir en my vida.</p>
+            <p>Este regalo es para ti en este día muy especial (30/09/2026). Gracias por existir en mi vida.</p>
             <button class="open-btn" onclick="startExperience()">Abrir sorpresa 🎁</button>
         </div>
     </div>
@@ -172,7 +175,7 @@
 
     <div class="bouquet-section">
         <div class="bouquet-box">
-            <span>💙💐✨</span>
+            <span>💐</span>
         </div>
     </div>
 
@@ -183,13 +186,13 @@
     <script>
         function startExperience() {
             const music = document.getElementById('bg-music');
-            music.play().catch(err => console.log("Audio play error:", err));
+            music.play().catch(e => console.log("Audio play blocked", e));
 
             const welcome = document.getElementById('welcome-screen');
             welcome.style.opacity = '0';
             setTimeout(() => {
                 welcome.style.display = 'none';
-            }, 600);
+            }, 800);
         }
 
         const messages = [
