@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Día de los Carritos Hot Wheels 🚗💙</title>
+    <title>Feliz Día de los Carritos Hot Wheels 🚗💙 v2</title>
     <style>
         * {
             margin: 0;
@@ -24,7 +24,7 @@
             text-align: center;
             position: relative;
         }
-        /* Pantalla de bienvenida inicial */
+        /* Pantalla de bienvenida con tu dedicatoria */
         #welcome-screen {
             position: fixed;
             top: 0;
@@ -71,10 +71,6 @@
             font-weight: bold;
             cursor: pointer;
             box-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
-            transition: transform 0.2s;
-        }
-        .open-btn:active {
-            transform: scale(0.95);
         }
 
         /* Contenido principal */
@@ -102,8 +98,8 @@
             justify-content: center;
         }
         .bouquet-box {
-            font-size: 80px;
-            filter: drop-shadow(0 0 25px #00d2ff) hue-rotate(180deg);
+            font-size: 85px;
+            filter: drop-shadow(0 0 25px #00d2ff);
             animation: pulse-bouquet 2s infinite alternate;
         }
         @keyframes pulse-bouquet {
@@ -154,16 +150,17 @@
 </head>
 <body>
 
-    <!-- Música romántica de fondo -->
+    <!-- Música romántica enlazada -->
     <audio id="bg-music" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mpeg">
+        <source src="https://actions.google.com/sounds/v1/ambiences/rain_heavy.ogg" type="audio/ogg">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf756.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Pantalla Inicial con la Dedicatoria -->
+    <!-- Pantalla de bienvenida con tu fecha -->
     <div id="welcome-screen">
         <div class="welcome-card">
             <h2>Para el amor de mi vida 🤍</h2>
-            <p>Este regalo es para ti en este día muy especial (30/09/2026). Gracias por existir en mi vida.</p>
+            <p>Este regalo es para ti en este día muy especial (30/09/2026). Gracias por existir en my vida.</p>
             <button class="open-btn" onclick="startExperience()">Abrir sorpresa 🎁</button>
         </div>
     </div>
@@ -175,7 +172,7 @@
 
     <div class="bouquet-section">
         <div class="bouquet-box">
-            <span>💠💐💙</span>
+            <span>💙💐✨</span>
         </div>
     </div>
 
@@ -186,7 +183,7 @@
     <script>
         function startExperience() {
             const music = document.getElementById('bg-music');
-            music.play().catch(e => console.log("Audio play blocked", e));
+            music.play().catch(err => console.log("Audio play error:", err));
 
             const welcome = document.getElementById('welcome-screen');
             welcome.style.opacity = '0';
